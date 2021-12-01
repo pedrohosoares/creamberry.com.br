@@ -18,10 +18,10 @@ get_template_part('theme-parts/theme', 'menu');
             <div class="col-lg-12 col-md-12 col-sm-12 news-block text-center">
                 <form id="form-search-franquias">
 
-                <select name="pais" id="pais">
+                    <select name="pais" id="pais">
                         <?php
-                        $states = soares_get_locations(0);
-                        foreach ($states as $i => $v) :
+                        $country = soares_get_locations(0);
+                        foreach ($country as $i => $v) :
                         ?>
                             <option value="<?php echo $v->term_id ?>"><?php echo $v->name ?></option>
                         <?php
@@ -29,7 +29,7 @@ get_template_part('theme-parts/theme', 'menu');
                         ?>
                     </select>
                     <select name="estado" id="estado">
-                        <option value=""><?php echo __('Estado', 'encontreseusite'); ?></option>
+                        <option value=""><?php echo __('Cidade', 'encontreseusite'); ?></option>
                     </select>
                     <select name="cidade" id="cidade">
                         <option value=""><?php echo __('Cidade', 'encontreseusite'); ?></option>
@@ -226,7 +226,9 @@ get_template_part('theme-parts/theme', 'contact');
             xhr.send();
 
         },
-        changePais(){
+
+        changePais() {
+
             this.pais.onchange = (e) => {
 
                 let pais = e.target.value;
@@ -234,8 +236,11 @@ get_template_part('theme-parts/theme', 'contact');
                 this.ajax(data);
                 this.ajax_data(pais);
 
-                }
-        }
+            }
+
+        },
+
+        
 
         changeEstado() {
 
@@ -291,6 +296,7 @@ get_template_part('theme-parts/theme', 'contact');
 
         init() {
 
+            this.changePais();
             this.changeEstado();
             this.changeCidade();
             this.changeBairro();
