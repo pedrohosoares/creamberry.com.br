@@ -984,7 +984,7 @@ if (!function_exists('soares_show_posts_locations')) :
 								endforeach;
 								$endereco = implode(', ', $maps);
 								$maps = str_replace(' ', '+', $endereco);
-								if($titleEmBreve !== false){
+								if($titleEmBreve === false){
 								?>
 								<a href="<?php the_permalink($franquia->ID); ?>" rel="<?php echo $franquia->post_title; ?>">
 									<?php echo $endereco; ?>
@@ -998,7 +998,7 @@ if (!function_exists('soares_show_posts_locations')) :
 							
 							<div class="btn-box">
 								<?php 
-								if($titleEmBreve !== false){
+								if($titleEmBreve === false){
 								?>
 									<a href="<?php the_permalink($franquia->ID); ?>" rel="<?php echo $franquia->post_title; ?>" class="theme-btn-two"><?php echo __('Ver Unidade', 'encontreseusite'); ?></a>
 								<?php 
