@@ -965,15 +965,18 @@ if (!function_exists('soares_show_posts_locations')) :
 					<div class="inner-box" style=" height: 293px; ">
 						<div class="lower-content">
 							<h2 style="font-size: 35px;">
-                                <?php the_title();?>
+                                <?php $franquia->post_title;?>
 							</h2>
+							<?php 
+								$titleEmBreve = strtolower($franquia->post_title);
+								$titleEmBreve = strpos($titleEmBreve,'em breve');
+							?>
 							<h3 style="font-size:17px;">
 								<?php
 								$terms = get_the_terms($franquia->ID, 'soares_show_localizacao');
 								$maps = array();
 								$terms = json_decode(json_encode($terms), true);
 								usort($terms, function ($a, $b) {
-
 									return $a['parent'] > $b['parent'];
 								});
 								foreach ($terms as $i => $term) :
@@ -981,16 +984,20 @@ if (!function_exists('soares_show_posts_locations')) :
 								endforeach;
 								$endereco = implode(', ', $maps);
 								$maps = str_replace(' ', '+', $endereco);
+								if($titleEmBreve !== false){
 								?>
 								<a href="<?php the_permalink($franquia->ID); ?>" rel="<?php echo $franquia->post_title; ?>">
 									<?php echo $endereco; ?>
 								</a>
+								<?php
+								}else{
+									echo $endereco;
+								}
+								?>
 							</h3>
 							
 							<div class="btn-box">
 								<?php 
-								$titleEmBreve = strtolower($franquia->post_title);
-								$titleEmBreve = strpos($titleEmBreve,'em breve');
 								if($titleEmBreve !== false){
 								?>
 									<a href="<?php the_permalink($franquia->ID); ?>" rel="<?php echo $franquia->post_title; ?>" class="theme-btn-two"><?php echo __('Ver Unidade', 'encontreseusite'); ?></a>
