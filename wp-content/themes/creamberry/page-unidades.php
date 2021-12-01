@@ -156,6 +156,15 @@ get_template_part('theme-parts/theme', 'contact');
             xhr.send();
 
         },
+        insertFieldsInput(json,fieldLocation){
+            json.forEach((v, i) => {
+                fieldLocation.innerHTML = "<option value=''>Selecione</option>";
+                let option = document.createElement('option');
+                option.innerText = v.name;
+                option.value = v.term_id;
+                fieldLocation.appendChild(option);
+            });
+        },
         ajax(data) {
 
             let xhr = new XMLHttpRequest();
@@ -168,47 +177,19 @@ get_template_part('theme-parts/theme', 'contact');
 
                         if (this.typeSelect == 'country') {
 
-                            soares_location.estado.innerHTML = "<option value=''>Selecione</option>";
-                            let option = document.createElement('option');
-                            option.innerText = v.name;
-                            option.value = v.term_id;
-                            soares_location.estado.appendChild(option);
+                            this.insertFieldsInput(json,soares_location.estado);
 
                         } else if (this.typeSelect == 'state') {
 
-                            json.forEach((v, i) => {
-
-                                soares_location.cidade.innerHTML = "<option value=''>Selecione</option>";
-                                let option = document.createElement('option');
-                                option.innerText = v.name;
-                                option.value = v.term_id;
-                                soares_location.cidade.appendChild(option);
-
-                            });
+                            this.insertFieldsInput(json,soares_location.cidade);
 
                         } else if (this.typeSelect == 'city') {
 
-                            json.forEach((v, i) => {
-
-                                soares_location.bairro.innerHTML = "<option value=''>Selecione</option>";
-                                let option = document.createElement('option');
-                                option.innerText = v.name;
-                                option.value = v.term_id;
-                                soares_location.bairro.appendChild(option);
-
-                            });
+                            this.insertFieldsInput(json,soares_location.bairro);
 
                         } else if (this.typeSelect == 'neighboor') {
 
-                            json.forEach((v, i) => {
-
-                                soares_location.rua.innerHTML = "<option value=''>Selecione</option>";
-                                let option = document.createElement('option');
-                                option.innerText = v.name;
-                                option.value = v.term_id;
-                                soares_location.rua.appendChild(option);
-
-                            });
+                            this.insertFieldsInput(json,soares_location.rua);
 
                         }
 
