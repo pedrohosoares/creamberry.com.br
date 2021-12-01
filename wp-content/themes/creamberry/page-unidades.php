@@ -18,7 +18,7 @@ get_template_part('theme-parts/theme', 'menu');
             <div class="col-lg-12 col-md-12 col-sm-12 news-block text-center">
                 <form id="form-search-franquias">
 
-                    <select name="estado" id="estado">
+                <select name="pais" id="pais">
                         <?php
                         $states = soares_get_locations(0);
                         foreach ($states as $i => $v) :
@@ -27,6 +27,9 @@ get_template_part('theme-parts/theme', 'menu');
                         <?php
                         endforeach;
                         ?>
+                    </select>
+                    <select name="estado" id="estado">
+                        <option value=""><?php echo __('Estado', 'encontreseusite'); ?></option>
                     </select>
                     <select name="cidade" id="cidade">
                         <option value=""><?php echo __('Cidade', 'encontreseusite'); ?></option>
@@ -124,6 +127,7 @@ get_template_part('theme-parts/theme', 'contact');
 
         lojas: document.querySelector("div#lojas"),
         parent: null,
+        pais: document.querySelector('select[name="pais"]'),
         estado: document.querySelector('select[name="estado"]'),
         cidade: document.querySelector('select[name="cidade"]'),
         bairro: document.querySelector('select[name="bairro"]'),
@@ -222,6 +226,16 @@ get_template_part('theme-parts/theme', 'contact');
             xhr.send();
 
         },
+        changePais(){
+            this.pais.onchange = (e) => {
+
+                let pais = e.target.value;
+                let data = "parent=" + pais + "&action=soares_show_locations";
+                this.ajax(data);
+                this.ajax_data(pais);
+
+                }
+        }
 
         changeEstado() {
 
