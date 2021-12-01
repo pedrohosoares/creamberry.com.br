@@ -7,7 +7,7 @@ get_header();
 get_template_part('theme-parts/theme', 'menu');
 ?>
 <!-- main-header end -->
-<section class="news-section sec-pad pulltop-mobile" style="margin-top:100px;background-image: url(<?php bloginfo('url'); ?>/wp-content/themes/creamberry/assets/images/background/1.png);">
+<section class="news-section sec-pad pulltop-mobile" style="margin-top:100px;background-image: url(<?php bloginfo('url');?>/wp-content/themes/creamberry/assets/images/background/1.png);">
     <div class="auto-container">
         <div class="sec-title centred">
             <p><?php echo __('CreamBerry pelo Brasil', 'encontreseusite'); ?></p>
@@ -20,13 +20,13 @@ get_template_part('theme-parts/theme', 'menu');
 
                     <select name="pais" id="pais">
                         <?php
-                        $country = soares_get_locations(0);
-                        foreach ($country as $i => $v) :
-                        ?>
+$country = soares_get_locations(0);
+foreach ($country as $i => $v):
+?>
                             <option value="<?php echo $v->term_id ?>"><?php echo $v->name ?></option>
                         <?php
-                        endforeach;
-                        ?>
+endforeach;
+?>
                     </select>
                     <select name="estado" id="estado">
                         <option value=""><?php echo __('Estado', 'encontreseusite'); ?></option>
@@ -54,63 +54,63 @@ get_template_part('theme-parts/theme', 'menu');
 </section>
 
 <!-- news-section -->
-<section class="news-section sec-pad" style="background-image: url(<?php bloginfo('url'); ?>/wp-content/themes/creamberry/assets/images/background/2.png);">
+<section class="news-section sec-pad" style="background-image: url(<?php bloginfo('url');?>/wp-content/themes/creamberry/assets/images/background/2.png);">
     <div class="auto-container">
         <div class="sec-title centred">
-            <p><?php echo __('Tudo sobre açaí', 'encontreseusite');  ?></p>
-            <h2><?php echo __('Nosso blog de receitas', 'encontreseusite');  ?> <br> <?php echo __('sugestões e notícias', 'encontreseusite');  ?></h2>
+            <p><?php echo __('Tudo sobre açaí', 'encontreseusite'); ?></p>
+            <h2><?php echo __('Nosso blog de receitas', 'encontreseusite'); ?> <br> <?php echo __('sugestões e notícias', 'encontreseusite'); ?></h2>
         </div>
         <div class="row clearfix">
 
             <?php
-            $posts = get_posts(array(
-                'post_type' => 'post',
-                'numberposts' => 3,
-                'order' => 'DESC',
-                'orderby' => 'date',
-                'post_status' => 'publish'
-            ));
-            if ($posts) :
-                foreach ($posts as $post) :
-                    setup_postdata($post);
-            ?>
+$posts = get_posts(array(
+    'post_type' => 'post',
+    'numberposts' => 3,
+    'order' => 'DESC',
+    'orderby' => 'date',
+    'post_status' => 'publish',
+));
+if ($posts):
+    foreach ($posts as $post):
+        setup_postdata($post);
+        ?>
 
-                    <article class="col-lg-4 col-md-6 col-sm-12 news-block" style="background:#FFF;">
-                        <div class="news-block-one wow fadeInUp animated animated">
-                            <div class="inner-box">
-                                <figure class="image-box">
-                                    <a href="<?php the_permalink(); ?>" rel="<?php the_title(); ?>">
-                                        <?php if (has_post_thumbnail()) : ?>
-                                            <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" />
-                                        <?php endif; ?>
-                                    </a>
-                                </figure>
-                                <div class="lower-content" style="height: 451px;">
-                                    <ul class="post-info clearfix">
-                                        <li><?php the_date(); ?></li>
-                                    </ul>
-                                    <h3>
-                                        <a href="<?php the_permalink(); ?>" rel="<?php the_title(); ?>"><?php the_title(); ?></a>
-                                    </h3>
-                                    <p>
-                                        <?php echo substr(get_the_excerpt(), 0, 260) . '...'; ?>
-                                    </p>
-                                    <div class="btn-box" style="position: absolute; bottom: -63px;">
-                                        <a href="<?php the_permalink(); ?>" rel="<?php the_title(); ?>" class="theme-btn-two"><?php echo __('Ver receita', 'encontreseusite') ?></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
+		                    <article class="col-lg-4 col-md-6 col-sm-12 news-block" style="background:#FFF;">
+		                        <div class="news-block-one wow fadeInUp animated animated">
+		                            <div class="inner-box">
+		                                <figure class="image-box">
+		                                    <a href="<?php the_permalink();?>" rel="<?php the_title();?>">
+		                                        <?php if (has_post_thumbnail()): ?>
+		                                            <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title();?>" />
+		                                        <?php endif;?>
+	                                    </a>
+	                                </figure>
+	                                <div class="lower-content" style="height: 451px;">
+	                                    <ul class="post-info clearfix">
+	                                        <li><?php the_date();?></li>
+	                                    </ul>
+	                                    <h3>
+	                                        <a href="<?php the_permalink();?>" rel="<?php the_title();?>"><?php the_title();?></a>
+	                                    </h3>
+	                                    <p>
+	                                        <?php echo substr(get_the_excerpt(), 0, 260) . '...'; ?>
+	                                    </p>
+	                                    <div class="btn-box" style="position: absolute; bottom: -63px;">
+	                                        <a href="<?php the_permalink();?>" rel="<?php the_title();?>" class="theme-btn-two"><?php echo __('Ver receita', 'encontreseusite') ?></a>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </article>
 
-            <?php
-                endforeach;
-                wp_reset_postdata();
-            endif;
-            ?>
+	            <?php
+endforeach;
+wp_reset_postdata();
+endif;
+?>
         </div>
         <?php
-        ?>
+?>
 
 
     </div>
@@ -125,6 +125,7 @@ get_template_part('theme-parts/theme', 'contact');
 <script>
     let soares_location = {
 
+        typeSelect:'country',
         lojas: document.querySelector("div#lojas"),
         parent: null,
         pais: document.querySelector('select[name="pais"]'),
@@ -161,14 +162,11 @@ get_template_part('theme-parts/theme', 'contact');
             xhr.open('GET', '<?php echo admin_url('admin-ajax.php'); ?>?' + data, true);
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8')
             xhr.onreadystatechange = (state) => {
-                console.log(state);
-                if (state.target.readyState == 4) {
-
-                    if (state.target.response.length > 0) {
+                if (state.target.readyState == 4 && state.target.response.length > 0) {
 
                         let json = JSON.parse(state.target.response);
 
-                        if (json[0].parent == 0) {
+                        if (this.typeSelect == 'country') {
 
                             soares_location.estado.innerHTML = "<option value=''>Selecione</option>";
                             let option = document.createElement('option');
@@ -176,11 +174,7 @@ get_template_part('theme-parts/theme', 'contact');
                             option.value = v.term_id;
                             soares_location.estado.appendChild(option);
 
-                        } else if (json[0].parent == 1) {
-
-
-
-                        } else if (json[0].parent == 2) {
+                        } else if (this.typeSelect == 'state') {
 
                             json.forEach((v, i) => {
 
@@ -192,7 +186,7 @@ get_template_part('theme-parts/theme', 'contact');
 
                             });
 
-                        } else if (json[0].parent == 3) {
+                        } else if (this.typeSelect == 'city') {
 
                             json.forEach((v, i) => {
 
@@ -204,7 +198,7 @@ get_template_part('theme-parts/theme', 'contact');
 
                             });
 
-                        } else if (json[0].parent == 4) {
+                        } else if (this.typeSelect == 'neighboor') {
 
                             json.forEach((v, i) => {
 
@@ -218,8 +212,6 @@ get_template_part('theme-parts/theme', 'contact');
 
                         }
 
-                    }
-
                 }
 
             }
@@ -230,7 +222,7 @@ get_template_part('theme-parts/theme', 'contact');
         changePais() {
 
             this.pais.onchange = (e) => {
-
+                this.typeSelect = 'country';
                 let pais = e.target.value;
                 let data = "parent=" + pais + "&action=soares_show_locations";
                 this.ajax(data);
@@ -240,12 +232,12 @@ get_template_part('theme-parts/theme', 'contact');
 
         },
 
-        
+
 
         changeEstado() {
 
             this.estado.onchange = (e) => {
-
+                this.typeSelect = 'state';
                 let estado = e.target.value;
                 let data = "parent=" + estado + "&action=soares_show_locations";
                 this.ajax(data);
@@ -258,7 +250,7 @@ get_template_part('theme-parts/theme', 'contact');
         changeCidade() {
 
             this.cidade.onchange = (e) => {
-
+                this.typeSelect = 'city';
                 let cidade = e.target.value;
                 let data = "parent=" + cidade + "&action=soares_show_locations";
                 this.ajax(data);
@@ -271,7 +263,7 @@ get_template_part('theme-parts/theme', 'contact');
         changeBairro() {
 
             this.bairro.onchange = (e) => {
-
+                this.typeSelect = 'neighboor';
                 let bairro = e.target.value;
                 let data = "parent=" + bairro + "&action=soares_show_locations";
                 this.ajax(data);
@@ -284,7 +276,7 @@ get_template_part('theme-parts/theme', 'contact');
         changeRua() {
 
             this.rua.onchange = (e) => {
-
+                this.typeSelect = 'street';
                 let rua = e.target.value;
                 let data = "parent=" + rua + "&action=soares_show_locations";
                 this.ajax(data);
@@ -301,7 +293,7 @@ get_template_part('theme-parts/theme', 'contact');
             this.changeCidade();
             this.changeBairro();
             this.changeRua();
-
+            this.typeSelect = 'country';
             let pais = this.pais.value;
             let data = "parent=" + pais + "&action=soares_show_locations";
             soares_location.ajax(data);
