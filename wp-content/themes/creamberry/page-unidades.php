@@ -161,7 +161,7 @@ get_template_part('theme-parts/theme', 'contact');
             xhr.open('GET', '<?php echo admin_url('admin-ajax.php'); ?>?' + data, true);
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8')
             xhr.onreadystatechange = (state) => {
-
+                console.log(state);
                 if (state.target.readyState == 4) {
 
                     if (state.target.response.length > 0) {
