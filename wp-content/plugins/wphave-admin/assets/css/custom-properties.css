@@ -1,0 +1,62 @@
+
+		:root {
+
+			
+		  	--wpatThemeColor: #4275bc;
+			
+				
+				--wpatThemeColor-lighten-10: #5583c3;
+				--wpatThemeColor-lighten-20: #6891ca;
+				--wpatThemeColor-lighten-30: #7b9fd1;
+				--wpatThemeColor-lighten-40: #8eadd7;
+				--wpatThemeColor-lighten-50: #a1bade;
+				--wpatThemeColor-lighten-60: #b4c8e5;
+				--wpatThemeColor-lighten-70: #c7d6eb;
+				--wpatThemeColor-lighten-80: #dae4f2;
+				--wpatThemeColor-lighten-90: #edf2f9;
+			
+				
+				--wpatThemeColor-darken-10: #3c6aaa;
+				--wpatThemeColor-darken-20: #355e97;
+				--wpatThemeColor-darken-30: #2f5284;
+				--wpatThemeColor-darken-40: #284771;
+				--wpatThemeColor-darken-50: #213b5e;
+				--wpatThemeColor-darken-60: #1b2f4c;
+				--wpatThemeColor-darken-70: #142439;
+				--wpatThemeColor-darken-80: #0e1826;
+				--wpatThemeColor-darken-90: #070c13;
+			
+				
+				--wpatThemeColor-fade-10: rgba(66,117,188,0.1);
+
+			
+			--wpatToolbarColor: #9cafbf;
+			
+				
+				--wpatToolbarColor-lighten-10: #a6b7c6;
+				--wpatToolbarColor-lighten-90: #f6f7f9;
+
+			
+			--wpatGradientStartColor: rgb(84,92,99);
+
+			--wpatGradientEndColor: rgb(50,55,60);
+
+			--wpatSpacingMaxWidth: 2000px;
+
+			--wpatMenuLeftWidth: 160px;
+
+			--wpatMenuLeftWidthDiff: 120px;
+
+			--wpatLoginLogoSize: 250px;
+
+			--wpatToolbarIcon: none;
+
+			--wpatWebFont: none;
+
+			--wpatLoginBg: none;
+
+			--wpatLoginLogo: none;
+
+		}
+
+		
