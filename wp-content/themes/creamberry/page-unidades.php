@@ -157,8 +157,8 @@ get_template_part('theme-parts/theme', 'contact');
 
         },
         insertFieldsInput(json,fieldLocation){
+            fieldLocation.innerHTML = "<option value=''>Selecione</option>";
             json.forEach((v, i) => {
-                fieldLocation.innerHTML = "<option value=''>Selecione</option>";
                 let option = document.createElement('option');
                 option.innerText = v.name;
                 option.value = v.term_id;
