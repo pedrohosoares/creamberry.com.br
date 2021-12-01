@@ -962,7 +962,7 @@ if (!function_exists('soares_show_posts_locations')) :
 		?>
 			<article class="col-lg-4 col-md-6 col-sm-12 news-block">
 				<div class="news-block-one wow fadeInUp animated animated">
-					<div class="inner-box" style=" height: 293px; ">
+					<div class="inner-box" style=" height: 367px; ">
 						<div class="lower-content">
 							<h2 style="font-size: 35px;">
                                 <?php echo $franquia->post_title;?>
