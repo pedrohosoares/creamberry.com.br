@@ -29,7 +29,7 @@ get_template_part('theme-parts/theme', 'menu');
                         ?>
                     </select>
                     <select name="estado" id="estado">
-                        <option value=""><?php echo __('Cidade', 'encontreseusite'); ?></option>
+                        <option value=""><?php echo __('Estado', 'encontreseusite'); ?></option>
                     </select>
                     <select name="cidade" id="cidade">
                         <option value=""><?php echo __('Cidade', 'encontreseusite'); ?></option>
@@ -305,7 +305,7 @@ get_template_part('theme-parts/theme', 'contact');
             let pais = this.pais.value;
             let data = "parent=" + pais + "&action=soares_show_locations";
             soares_location.ajax(data);
-            soares_location.ajax_data(estado);
+            soares_location.ajax_data(pais);
 
         }
 
