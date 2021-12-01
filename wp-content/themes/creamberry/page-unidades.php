@@ -302,16 +302,16 @@ get_template_part('theme-parts/theme', 'contact');
             this.changeBairro();
             this.changeRua();
 
+            let pais = this.pais.value;
+            let data = "parent=" + pais + "&action=soares_show_locations";
+            soares_location.ajax(data);
+            soares_location.ajax_data(estado);
+
         }
 
     };
 
     soares_location.init();
-    let pais = soares_location.pais.value;
-    let estado = soares_location.estado.value;
-    let data = "parent=" + estado + "&action=soares_show_locations";
-    soares_location.ajax(data);
-    soares_location.ajax_data(estado);
 </script>
 
 <!-- main-footer -->
