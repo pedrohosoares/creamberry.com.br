@@ -133,6 +133,7 @@ get_template_part('theme-parts/theme', 'contact');
         cidade: document.querySelector('select[name="cidade"]'),
         bairro: document.querySelector('select[name="bairro"]'),
         rua: document.querySelector('select[name="rua"]'),
+        ultimaLocalizacao:'',
 
         ajax_data(term_id) {
 
@@ -223,7 +224,7 @@ get_template_part('theme-parts/theme', 'contact');
 
             this.estado.onchange = (e) => {
                 this.typeSelect = 'state';
-                let estado = e.target.value;
+                let estado = e.target.value.length > 0 ? e.target.value : this.pais.value;
                 let data = "parent=" + estado + "&action=soares_show_locations";
                 this.cidade.value = "";
                 this.bairro.value = "";
@@ -239,7 +240,7 @@ get_template_part('theme-parts/theme', 'contact');
 
             this.cidade.onchange = (e) => {
                 this.typeSelect = 'city';
-                let cidade = e.target.value;
+                let cidade = e.target.value.length > 0 ? e.target.value : this.estado.value;
                 let data = "parent=" + cidade + "&action=soares_show_locations";
                 this.bairro.value = "";
                 this.rua.value = "";
@@ -254,7 +255,7 @@ get_template_part('theme-parts/theme', 'contact');
 
             this.bairro.onchange = (e) => {
                 this.typeSelect = 'neighboor';
-                let bairro = e.target.value;
+                let bairro = e.target.value.length > 0 ? e.target.value : this.cidade.value;
                 let data = "parent=" + bairro + "&action=soares_show_locations";
                 this.rua.value = "";
                 this.ajax(data);
