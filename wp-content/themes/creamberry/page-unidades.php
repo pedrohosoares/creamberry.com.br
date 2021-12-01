@@ -307,6 +307,7 @@ get_template_part('theme-parts/theme', 'contact');
     };
 
     soares_location.init();
+    let pais = soares_location.pais.value;
     let estado = soares_location.estado.value;
     let data = "parent=" + estado + "&action=soares_show_locations";
     soares_location.ajax(data);
