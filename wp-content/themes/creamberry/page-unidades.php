@@ -206,6 +206,10 @@ get_template_part('theme-parts/theme', 'contact');
                 this.typeSelect = 'country';
                 let pais = e.target.value;
                 let data = "parent=" + pais + "&action=soares_show_locations";
+                this.estado.value = "";
+                this.cidade.value = "";
+                this.bairro.value = "";
+                this.rua.value = "";
                 this.ajax(data);
                 this.ajax_data(pais);
 
@@ -221,6 +225,9 @@ get_template_part('theme-parts/theme', 'contact');
                 this.typeSelect = 'state';
                 let estado = e.target.value;
                 let data = "parent=" + estado + "&action=soares_show_locations";
+                this.cidade.value = "";
+                this.bairro.value = "";
+                this.rua.value = "";
                 this.ajax(data);
                 this.ajax_data(estado);
 
@@ -234,6 +241,8 @@ get_template_part('theme-parts/theme', 'contact');
                 this.typeSelect = 'city';
                 let cidade = e.target.value;
                 let data = "parent=" + cidade + "&action=soares_show_locations";
+                this.bairro.value = "";
+                this.rua.value = "";
                 this.ajax(data);
                 this.ajax_data(cidade);
 
@@ -247,6 +256,7 @@ get_template_part('theme-parts/theme', 'contact');
                 this.typeSelect = 'neighboor';
                 let bairro = e.target.value;
                 let data = "parent=" + bairro + "&action=soares_show_locations";
+                this.rua.value = "";
                 this.ajax(data);
                 this.ajax_data(bairro);
 
