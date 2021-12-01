@@ -965,7 +965,7 @@ if (!function_exists('soares_show_posts_locations')) :
 					<div class="inner-box" style=" height: 293px; ">
 						<div class="lower-content">
 							<h2 style="font-size: 35px;">
-                                <?php $franquia->post_title;?>
+                                <?php echo $franquia->post_title;?>
 							</h2>
 							<?php 
 								$titleEmBreve = strtolower($franquia->post_title);
