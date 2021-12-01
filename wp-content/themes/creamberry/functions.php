@@ -962,8 +962,11 @@ if (!function_exists('soares_show_posts_locations')) :
 		?>
 			<article class="col-lg-4 col-md-6 col-sm-12 news-block">
 				<div class="news-block-one wow fadeInUp animated animated">
-					<div class="inner-box" style=" height: 230px; ">
+					<div class="inner-box" style=" height: 293px; ">
 						<div class="lower-content">
+							<h2 style="font-size: 35px;">
+                                <?php the_title();?>
+							</h2>
 							<h3 style="font-size:17px;">
 								<?php
 								$terms = get_the_terms($franquia->ID, 'soares_show_localizacao');
@@ -985,7 +988,15 @@ if (!function_exists('soares_show_posts_locations')) :
 							</h3>
 							
 							<div class="btn-box">
-								<a href="<?php the_permalink($franquia->ID); ?>" rel="<?php echo $franquia->post_title; ?>" class="theme-btn-two"><?php echo __('Ver Unidade', 'encontreseusite'); ?></a>
+								<?php 
+								$titleEmBreve = strtolower($franquia->post_title);
+								$titleEmBreve = strpos($titleEmBreve,'em breve');
+								if($titleEmBreve !== false){
+								?>
+									<a href="<?php the_permalink($franquia->ID); ?>" rel="<?php echo $franquia->post_title; ?>" class="theme-btn-two"><?php echo __('Ver Unidade', 'encontreseusite'); ?></a>
+								<?php 
+								}
+								?>
 							</div>
 						</div>
 					</div>
